@@ -1,0 +1,25 @@
+#!/bin/sh
+
+ENABLED=yes
+PROCS=/opt/bin/white-ip
+ARGS="/opt/etc/white-ip/white-ip.conf"
+PREARGS=""
+DESC=$PROCS
+PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+case "$1" in
+    check|test)
+        echo "Testing config..."
+        $PROCS --test $ARGS
+        exit $?
+        ;;
+    start|stop|restart|status)
+        # разрешённые команды — передаём дальше в rc.func
+        ;;
+    *)
+        echo "Usage: $0 (start|stop|restart|status|check)"
+        exit 1
+        ;;
+esac
+
+. /opt/etc/init.d/rc.func
