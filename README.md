@@ -121,7 +121,11 @@ go build -o white-ip .
 3. Проверить конфигурацию: `./white-ip_mipsel-3.4 --test`.
 4. Запустить демон: `./white-ip_mipsel-3.4`.
 
-Для автозапуска при загрузке роутера потребуется init.d-скрипт Entware — положить файл S99white-ip в `/opt/etc/init.d/S99white-ip` и дать права `chmod +x /opt/etc/init.d/S99white-ip`
+## Автозапуск
+Для автозапуска при загрузке роутера потребуется init.d-скрипт Entware:
+1. Положить файл S99white-ip в `/opt/etc/init.d/S99white-ip`
+2. Выдать права: `chmod +x /opt/etc/init.d/S99white-ip`
+3. Узнать команды управления: `/opt/etc/init.d/S99white-ip`
 
 
 ## Как это работает изнутри
